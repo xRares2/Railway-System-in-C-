@@ -1,0 +1,47 @@
+Diagrama UML
+
++-----------------------------+
+|        PasswordUtils        |
++------------------------------------------------------+
+| + encrypt(text: string, key: string): string         |
+| + decrypt(text: string, key: string): string         |
+| + evaluatePasswordStrength(password: string): string |
++------------------------------------------------------+
+
+                uses
+                 |
+                 v
++-----------------------------+
+|           User              |
++-----------------------------------------+
+| - email: string                         |
+| - encryptedPassword: string             |
+| - encryptionKey: const string ("Cheie") |
++------------------------------------------------------+
+| + isValidEmail(email: string): bool                  |
+| + login(email: string, password: string): User       |
+| + saveToFile(): void                                 |
+| + registerUser(email: string, password: string): void|
++------------------------------------------------------+
+
+                 uses
+                   |
+                   v
++-----------------------------+
+|           Trip              |
++-----------------------------+
+| - departureCity: string     |
+| - arrivalCity: string       |
+| - date: string              |
+| - time: string              |
++--------------------------------------------------+
+| + saveToFile(): void                             |
+| + listTrips(): void                              |
+| + isValidCityName(city: string): bool            |
+| + isValidDate(date: string): bool                |
+| + isValidTime(time: string): bool                |
+| + addTrip(departure: string, arrival: string,    |
+|           date: string, time: string): void      |
+| + deleteTrip(departure: string, arrival: string, |
+|             date: string, time: string): void    |
++--------------------------------------------------+
